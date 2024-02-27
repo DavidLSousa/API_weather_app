@@ -9,7 +9,10 @@ app.use(express.json())
 app.use(router)
 
 app.use((_, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5503')
+  const baseURLLocal = 'http://127.0.0.1:5503'
+  const baseURL = 'https://weather-app-davidlsousa.netlify.app/'
+  
+  res.setHeader('Access-Control-Allow-Origin', baseURL)
   res.setHeader('Access-Control-Allow-Methods', 'GET')
   next()
 })
